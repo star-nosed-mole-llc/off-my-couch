@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import logo from './logo.svg'
+import logo from "./logo.svg";
 import './App.css'
 
 function App() {
@@ -12,8 +12,11 @@ function App() {
   }, []);
 
   return (
-    <div>{JSON.stringify(res)}Hi World</div>
-  )
+    <>
+      <div>{JSON.stringify(res)}Hi World</div>
+      <img src={logo} />
+    </>
+  );
 }
 
 export default App
