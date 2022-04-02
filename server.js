@@ -15,6 +15,11 @@ app.get("/api/v1", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log("Server running in port 5000");
+const { PORT = 5000 } = process.env;
+
+app.listen(PORT, () => {
+  console.log();
+  console.log(`  App running in port ${PORT}`);
+  console.log();
+  console.log(`  > Local: \x1b[36mhttp://localhost:\x1b[1m${PORT}/\x1b[0m`);
 });
