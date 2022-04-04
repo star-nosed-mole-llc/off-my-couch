@@ -8,16 +8,16 @@ const assetsRouter = require("./server/assets-router");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(assetsRouter);
 
-app.get("/", (_req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-})
-
 app.get("/api/v1", (req, res) => {
   res.json({
     project: "React and Express Boilerplate",
     from: "Vanaldito",
   });
 });
+
+app.get("/*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+})
 
 const { PORT = 5000 } = process.env;
 
