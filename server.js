@@ -6,7 +6,7 @@ const app = express();
 const assetsRouter = require("./server/assets-router");
 
 app.use("/public", express.static(path.join(__dirname, "public")));
-app.use(assetsRouter);
+app.use("/src", assetsRouter);
 
 app.get("/api/v1", (req, res) => {
   res.json({
