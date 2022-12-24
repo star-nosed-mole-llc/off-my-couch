@@ -8,3 +8,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+/*
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
+  // <App initialized = {false} data = {'/master'} />
+);
+ */
