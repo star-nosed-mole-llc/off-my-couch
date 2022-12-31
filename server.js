@@ -6,9 +6,26 @@ const cors = require('cors');
 
 app.use(cors());
 
+/**
+ * handle parsing request body
+ */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use("/src", assetsRouter);
 
 app.use("/", express.static(path.join(__dirname, "public")));
+
+
+/*
+This was a simple testing route to make sure front/backend were communicating
+*/
+app.get('/testing', (req, res) => {
+  console.log('got the testing request');
+  res.status(200).send({msg: 'All is good!'});
+});
+
 
 app.get("/api/v1", (req, res) => {
   res.json({
@@ -21,6 +38,22 @@ app.get("/api/v1", (req, res) => {
 app.get("/*", (_req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 })
+
+
+/*
+ express error handler
+ */
+ app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+});
+
 
 const { PORT = 5000 } = process.env;
 
