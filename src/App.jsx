@@ -16,7 +16,9 @@ function App() {
   }
 
   const testDb = async () => {
-
+    const response = await fetch('/testDB');
+    const logThis = await response.json();
+    console.log(logThis);
   }
 
   return (
