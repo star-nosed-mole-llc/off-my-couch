@@ -18,14 +18,17 @@ app.use("/src", assetsRouter);
 app.use("/", express.static(path.join(__dirname, "public")));
 
 
-/*
-This was a simple testing route to make sure front/backend were communicating
-*/
+/*  testing route to make sure front/backend are communicating  */
 app.get('/testing', (req, res) => {
   console.log('got the testing request');
   res.status(200).send({msg: 'All is good!'});
 });
 
+/*  Testing that our db is connected and accessible   */
+const userController = require('./server/controllers/userController');
+app.get('/testDB', userController.getAllUsers, (req, res) => {
+  return res.status(200).json(res.locals.allUsers);
+})
 
 app.get("/api/v1", (req, res) => {
   res.json({
