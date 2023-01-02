@@ -1,4 +1,26 @@
 
+
+
+**VITE CONFIG FILE FROM FRONTEND**
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    manifest: true,
+    rollupOptions: {
+      input: "./src/main.jsx",
+    },
+  },
+});
+
+• npm i express cors body-parser pg axios css-loader file-loader react-router-dom sass sass-loader style-loader
+• npm install -D concurrently nodemon
+• npm i react-redux react-scripts redux
+• npm i bootstrap react-bootstrap
+• npm i react-icons
+
 • Ember made a copy of this morning's dev code,
   git checkout -b EmbeRefresh
   cleared everything from the directory,
@@ -20,3 +42,7 @@
 
   * stuff in public folder is unnecessary
   * if issues, try removing package-lock.json
+
+
+
+
