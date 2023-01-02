@@ -35,6 +35,11 @@ app.get('/testDB', userController.getAllUsers, (req, res) => {
 //setup an endpoint that will add users into the database
 app.post('/addUser', userController.addUser, (req, res) => {
   return res.status(200).json("user added");
+});
+
+//setup an enpdoint that will check a users crednetials
+app.post('/login', userController.login, (req, res) => {
+  return res.status(200).json('logged in');
 })
 
 app.get("/api/v1", (req, res) => {
