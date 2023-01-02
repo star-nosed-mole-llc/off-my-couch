@@ -1,23 +1,22 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
 
 const app = express();
 
-const assetsRouter = require("./server/assets-router");
+const assetsRouter = require('./server/assets-router');
 
-app.use("/", express.static(path.join(__dirname, "public")));
-app.use("/src", assetsRouter);
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/src', assetsRouter);
 
-app.get("/api/v1", (req, res) => {
-  res.json({
-    project: "React and Express Boilerplate",
-    from: "Vanaldito",
-  });
+app.get('/login', (_req, res) => {
+  console.log('login file');
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-app.get("/*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-})
+app.get('/*', (_req, res) => {
+  console.log('catch all file');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 const { PORT = 5000 } = process.env;
 
