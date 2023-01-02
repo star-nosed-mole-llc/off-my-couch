@@ -1,0 +1,22 @@
+
+• Ember made a copy of this morning's dev code,
+  git checkout -b EmbeRefresh
+  cleared everything from the directory,
+  npm init -y
+  npm create vite@latest
+    input "project name" as couchPotato,
+      (this is temporary)
+    accepted "package name" as couchPotato,
+    selected "React" for "framework",
+    selected "JavaScript" for "variant",
+  remove package.json,
+  moved everything inside couchPotato out a level into root,
+    (unnesting everything)
+  removed empty couchPotato,
+  npm install
+  npm i concurrently
+  npm run dev
+    confirmed on http://localhost:5173/
+
+  * stuff in public folder is unnecessary
+  * if issues, try removing package-lock.json
