@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+
     <title>Vite App</title>
   </head>
   <body>
-    <h1>INDEXXXXXX</h1>
     <div id="root"></div>
     <script type="module">
-      import RefreshRuntime from "http://localhost:5173/@react-refresh";
+      import RefreshRuntime from 'http://localhost:5173/@react-refresh';
       RefreshRuntime.injectIntoGlobalHook(window);
       window.$RefreshReg$ = () => {};
       window.$RefreshSig$ = () => (type) => type;
