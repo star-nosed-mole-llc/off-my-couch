@@ -21,24 +21,21 @@ const EventList = ({ toDoList }) => {
   };
   return (
     <div>
-      <h1 style={{ fontSize: '3rem' }}>Events In Your Area...</h1>
+      <h1 style={{ fontSize: '3rem', paddingBottom: 10 }}>
+        Events In Your Area...
+      </h1>
 
-      {/* ------------------------- bouton show done / show undone/ show all  ------------------- */}
-
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button className='show-button' onClick={handleDone}>
-          show Done
-        </button>
-        <button className='show-button' onClick={handleUnDone}>
-          show Undone
-        </button>
+      {/* TABS */}
+      <div style={{ display: 'flex', justifyContent: 'center', padding: 10 }}>
         <button className='show-button' onClick={handleReset}>
-          show all
+          All Events
+        </button>
+        <button className='show-button' onClick={handleDone}>
+          I'm Attending
         </button>
       </div>
 
-      {/* ------------------------- affichage todo ------------------- */}
-
+      {/* TAB LOGIC */}
       {done
         ? toDoList
             .filter((elem) => elem.isCompleted === true)

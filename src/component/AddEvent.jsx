@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { addToDo } from '../redux/actions/ToDoActions';
-
+import { addToDo } from '../redux/actions/EventAction';
 
 const AddEvent = ({ addToDo }) => {
   const [input, setInput] = useState('');
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
   const toDo = useSelector((state) => state.toDo);
   let id = toDo.length + 1;
   // fonction add to do
@@ -13,26 +14,42 @@ const AddEvent = ({ addToDo }) => {
     addToDo({
       id: id,
       text: input,
+      desc: description,
+      eventDate: date,
       isCompleted: false,
     });
     setInput('');
+    setDescription('');
+    setDate('');
   };
 
   return (
     <div>
-      {/* ------------------------- title ------------------- */}
-      <h1 style={{ fontSize: '3rem' }}>Events In Your Area...</h1>
-
-      {/* ------------------------- input add ------------------- */}
-
-      <form className='todo-form'>
+      {/* Add Event Form */}
+      <form className='todo-form' style={{ paddingTop: 180 }}>
         <input
           type='text'
-          placeholder='Your event details...'
+          placeholder='Title'
           value={input}
           required
-          className='todo-input'
+          className='event-title-input'
           onChange={(e) => setInput(e.target.value)}
+        />
+        <input
+          type='description'
+          placeholder='Give your guests the details...'
+          value={description}
+          required
+          className='todo-input'
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type='date'
+          placeholder='1/1/23'
+          value={date}
+          required
+          className='event-date-input'
+          onChange={(e) => setDate(e.target.value)}
         />
         <button
           className='todo-button'

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className='todo-app'>
+    <div className='event-app'>
       <EventList />
       <AddEvent />
     </div>
