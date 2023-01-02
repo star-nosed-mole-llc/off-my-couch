@@ -1,8 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import './App.css';
+import AddEvent from './component/AddEvent';
+import EventList from './component/EventList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
   const [count, setCount] = useState(0);
 
 
@@ -33,6 +35,7 @@ function App() {
     </div>
     
   )
+
 }
 
-export default App
+export default App;
