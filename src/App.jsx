@@ -4,12 +4,38 @@ import EventList from './component/EventList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
+
+  /*
+  This method on the App react componenet tests a fetch request to the server and logs the response
+  */
+  const logFromServer = async () => {
+    const response = await fetch('/testing');
+    const logThis = await response.json();
+    console.log(logThis);
+  }
+
+  const testDb = async () => {
+    const response = await fetch('/testDB');
+    const logThis = await response.json();
+    console.log(logThis);
+  }
+
   return (
-    <div className='event-app'>
-      <EventList />
-      <AddEvent />
+    <div className = 'App'>
+      <h1>HELLOOOO</h1>
+
+      {/* This line is merely a testing button to call the function logFromServer to make sure front/backend are working properly*/}
+      <button onClick = {()=>logFromServer()}>Click me to log from server</button>
+
+      {/* This line is merely a testing button to call the function logFromServer to make sure db is properly hooked up*/}
+      <button onClick = {()=>testDb()}>Click me to test DB query</button>
     </div>
-  );
+    
+  )
+
 }
 
 export default App;
