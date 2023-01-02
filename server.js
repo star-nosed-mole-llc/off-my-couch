@@ -19,7 +19,7 @@ app.get('/feed', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/*', (_req, res) => {
+app.get('*', (_req, res) => {
   console.log('catch all file');
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
