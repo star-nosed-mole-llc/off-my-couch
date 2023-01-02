@@ -1,9 +1,11 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const assetsRouter = require("./server/assets-router");
+const assetsRouter = require("./assets-router");
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 app.use(cors());
 
 /**
@@ -15,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/src", assetsRouter);
 
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/", express.static(path.join(__dirname, "./client")));
 
 
 /*  testing route to make sure front/backend are communicating  */
@@ -25,9 +27,14 @@ app.get('/testing', (req, res) => {
 });
 
 /*  Testing that our db is connected and accessible   */
-const userController = require('./server/controllers/userController');
+const userController = require('./controllers/userController');
 app.get('/testDB', userController.getAllUsers, (req, res) => {
   return res.status(200).json(res.locals.allUsers);
+})
+
+//setup an endpoint that will add users into the database
+app.post('/addUser', userController.addUser, (req, res) => {
+  return res.status(200).json("user added");
 })
 
 app.get("/api/v1", (req, res) => {
@@ -38,9 +45,9 @@ app.get("/api/v1", (req, res) => {
 });
 
 
-app.get("/*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-})
+// app.get("/*", (_req, res) => {
+//   res.sendFile(path.join(__dirname, "./client", "index.html"));
+// })
 
 
 /*

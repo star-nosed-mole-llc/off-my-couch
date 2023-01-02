@@ -1,7 +1,7 @@
 /*
   userController.js  --> This file will handle interacting with the 'users' table in our database
-  
-  Possible methods include createUser, deleteUser, 
+
+  Possible methods include createUser, deleteUser,
 */
 
 const db = require('../databasePool');
@@ -20,7 +20,7 @@ userController.getAllUsers = async (req, res, next) => {
   db.query(sqlString).then(queryResponse => {
     console.log('queryResponse.rows:', queryResponse.rows);
     res.locals.allUsers = queryResponse.rows;
-    next();    
+    next();
   })
   .catch(err => {
     return next(err);
@@ -29,12 +29,30 @@ userController.getAllUsers = async (req, res, next) => {
 
 
 userController.addUser = (req, res, next) => {
+  /*
+
+  we need:
+  -last name
+  -first name,
+  -Address
+  -email
+  -password
+  */
+ const {lastName, firstName, address, email, password } = req.query;
+
 
 }
 
+userController.login = (req, res, next) => {
+
+}
+
+userController.updateUser = (req,res,next) => {
+
+}
 
 userController.deleteUser = (req, res, next) => {
-  
+
 }
 
 module.exports = userController;

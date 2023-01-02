@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 
 const PG_URI = 'postgres://kfsrhmyz:qoZLQJfaF3GI-K85XAS0MWC7t0su_3CI@isilo.db.elephantsql.com/kfsrhmyz'
            //  'postgres://xtxxmeaf:a_g6lOwGcQcEHeQFIlDm9Td_E5XBUtlo@stampy.db.elephantsql.com/xtxxmeaf';
-           //   ^^ This is an old URI from our starwars db model I used as a reference to compare the curent uri to the old one. 
+           //   ^^ This is an old URI from our starwars db model I used as a reference to compare the curent uri to the old one.
 
 // create a new pool here using the connection string above
 const pool = new Pool({
