@@ -1,11 +1,42 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { FaUserAstronaut } from 'react-icons/fa';
 
 const Login = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const submitFormData = (event) => {
+    // event.preventDefault();
+
+    const newUser = {
+      firstName,
+      lastName,
+      address,
+      email,
+      password,
+    };
+
+    axios.post('/login', newUser);
+    // axios.get('/user', {
+    //   params: {
+    //     user: newUser
+    //   }
+    // reset states
+    // setFirstName('');
+    // setLastName('');
+    // setAddress('');
+    // setEmail('');
+    // setPassword('');
+  };
+
   return (
-    <div class='wrapper fadeInDown'>
+    <div className='wrapper fadeInDown'>
       <div id='formContent'>
-        <div class='fadeIn first'>
+        <div className='fadeIn first'>
           <FaUserAstronaut
             style={{
               fontSize: '2.5rem',
@@ -16,31 +47,62 @@ const Login = () => {
           />
         </div>
 
-        <form>
+        <form onSubmit={submitFormData}>
+          {/* first name */}
           <input
             type='text'
-            id='username'
-            class='fadeIn second'
-            name='username'
-            placeholder='username'
+            id='firstName'
+            className='fadeIn second'
+            name='firstName'
+            placeholder='first name'
+            onChange={(e) => setFirstName(e.target.value)}
           />
+          {/* last name */}
+          <input
+            type='text'
+            id='lastName'
+            className='fadeIn second'
+            name='lastName'
+            placeholder='last name'
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          {/* password */}
           <input
             type='text'
             id='pw'
-            class='fadeIn third'
+            className='fadeIn third'
             name='pw'
             placeholder='password'
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {/* city */}
+          <input
+            type='text'
+            id='address'
+            className='fadeIn third'
+            name='address'
+            placeholder='address'
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          {/* email */}
+          <input
+            type='text'
+            id='email'
+            className='fadeIn third'
+            name='email'
+            placeholder='email'
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type='submit'
-            class='fadeIn todo-button'
+            className='fadeIn todo-button'
             style={{ marginTop: 20 }}
-            value='Log In'
+            value='Sign Up'
           />
         </form>
 
         <div id='formFooter'>
-          <a class='underlineHover' href='#'>
+          <a className='underlineHover' href='#'>
             Forgot Password?
           </a>
         </div>
