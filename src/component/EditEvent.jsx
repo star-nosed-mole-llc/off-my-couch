@@ -10,7 +10,7 @@ const EditEvent = ({ el, editToDo }) => {
   const handleShow = () => setShow(true);
   const [editInput, setEditInput] = useState(el.text);
 
-  // fonction edit to do
+  // function edit to do
   const edit = (e) => {
     e.preventDefault();
     editToDo({
