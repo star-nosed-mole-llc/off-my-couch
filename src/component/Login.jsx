@@ -21,10 +21,7 @@ const Login = () => {
     };
 
     axios.post('/login', newUser);
-    // axios.get('/user', {
-    //   params: {
-    //     user: newUser
-    //   }
+
     // reset states
     // setFirstName('');
     // setLastName('');
@@ -47,7 +44,11 @@ const Login = () => {
           />
         </div>
 
-        <form onSubmit={submitFormData}>
+        <form
+          onSubmit={submitFormData}
+          action="{{ url('/feed') }}"
+          method='GET'
+        >
           {/* first name */}
           <input
             type='text'
@@ -98,6 +99,7 @@ const Login = () => {
             className='fadeIn todo-button'
             style={{ marginTop: 20 }}
             value='Sign Up'
+            href='/feed'
           />
         </form>
 

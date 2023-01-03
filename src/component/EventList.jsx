@@ -6,6 +6,11 @@ const EventList = ({ toDoList }) => {
   const [done, setDone] = useState(false);
   const [undone, setUndone] = useState(false);
   const [reset, setReset] = useState(false);
+
+  const queryParameters = new URLSearchParams(window.location.search);
+  const firstName = queryParameters.get('firstName');
+  console.log(firstName);
+
   const handleDone = () => {
     setDone(!done);
     setUndone(false);
@@ -22,11 +27,17 @@ const EventList = ({ toDoList }) => {
   return (
     <div>
       <h1 style={{ fontSize: '3rem', paddingBottom: 10 }}>
-        Events In Your Area...
+        Events in Your Area, {firstName}...
       </h1>
 
       {/* TABS */}
-      <div style={{ display: 'flex', justifyContent: 'center', padding: 10 }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          padding: 10,
+        }}
+      >
         <button className='show-button' onClick={handleReset}>
           All Events
         </button>

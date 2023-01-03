@@ -9,22 +9,22 @@ const initialState = {
   toDo: [
     {
       id: 0,
-      text: 'Local Event 1',
-      desc: 'The datails of this event go here.',
+      text: 'Pickup Basketball',
+      desc: 'Courts behind walmart, 2pm.',
       eventDate: '2023-01-17',
       isCompleted: false,
     },
     {
       id: 1,
-      text: 'Local Event 2',
-      desc: 'The datails of this event go here.',
+      text: 'wine & Painting',
+      desc: 'BYOB.',
       eventDate: '2023-01-17',
       isCompleted: false,
     },
     {
       id: 2,
-      text: 'Local Event 3',
-      desc: 'The datails of this event go here.',
+      text: 'Game Night',
+      desc: 'A friendly game of monopoly.',
       eventDate: '2023-01-17',
       isCompleted: false,
     },
